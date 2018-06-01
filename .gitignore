@@ -1,0 +1,13 @@
+#Pycharm Stuff
+Assignment3_*
+Assignment3_.idea_Assignment3.iml
+.idea/*
+
+# Sublime Stuff
+*.sublime-project
+*.sublime-workspace
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class

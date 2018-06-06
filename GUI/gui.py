@@ -27,9 +27,9 @@ class MainWindow(object):
         main_window = Tk()
         main_window.title("Assignment3")
         main_window.geometry("500x550")
-        group = Label(main_window, text="Jahrgang: BWI15-BB",)
+        group = Label(main_window, text="Jahrgang: BWI16-BB",)
         group.pack()
-        description = Label(main_window, text="Description: Each device(Pi) in the Network will be listed here!\n"
+        description = Label(main_window, text="Description: Each device(Raspberry Pi) in the Local Network will be listed here!\n"
                                           "If a device (Pi) entry or loss the list will be changed!\n"
                                           "There is also a master election under the devices(Pis)!\n",)
         description.pack()

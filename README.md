@@ -1,4 +1,4 @@
-# ASS3 - Python Network
+# OEC-Assignemt3 - 2018 - Cranberries Python Network
 
 This project was created as part of our open enterprise computing course
 

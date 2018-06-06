@@ -19,7 +19,7 @@ Feel free to clone, fork, like, remix, whatever you want to do with this code.
 
 ## Authors
 
-* **BWI15-BB** - **BWI15-VZ**
+* **BWI16-BB** - **BWI16-VZ** - **BWI15-BB** - **BWI15-VZ**
 
 
 ## License

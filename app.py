@@ -12,25 +12,29 @@ from MasterElection.default import hold_master_election
 from Misc.helpers import debug_print
 from datetime import datetime as dt
 
+#TODO: Beim Stoppen des Service, GUI Liste leeren.
 
 class App(object):
     """ This is the app. It combines and orchestrates all other app components. """
 
     def __init__(self):
-        self.know_network_nodes = {}
-        self.peer_sync_interval = PEER_SYNC_INTERVAL
+        self.know_network_nodes = {} # self.Bla <-- so werden Instanzattribute definiert
+        self.peer_sync_interval = PEER_SYNC_INTERVAL # <-- Konstante, in Config/settings.py definiert (Strg + Klick)
         self.peer_sync_active = False
         self.listen_state_on = False
         self.port = DEFAULT_APPLICATION_PORT
         self.own_ip = ''
 
+    # self: Verpflichtend als 1. Parameter, bei jeder Methode.
+    # Referenziert die erzeugt Instanz dieser Klasse (ähnlich this bei C#)
+
     def start(self):
         """ Start this app. """
-        self.snd = SubnetBroadcaster(self.port, GOODBYE_MSG)
-        self.rcv = MessageRCV(self.process_incoming_message, self.port)
-        self.window = MainWindow(com_start_callback=self.start_communication,
-                                 com_stop_callback=self.stop_communication,
-                                 app_close_callback=self.stop)
+        self.snd = SubnetBroadcaster(self.port, GOODBYE_MSG) # <-- Communication/broadcast.py
+        self.rcv = MessageRCV(self.process_incoming_message, self.port)  # <-- Communication/listen.py mit callbackfunction process_incoming_message
+        self.window = MainWindow(com_start_callback=self.start_communication,  # Function that is calles when "Start Com" is pressed
+                                 com_stop_callback=self.stop_communication,  # Function that is calles when "Stop Com" is pressed
+                                 app_close_callback=self.stop)  # Function that is called when "App" is closed regulary
 
         own_ip_func = getattr(helpers, GET_OWN_IP_FUNC)  # get the right func dynamically
         self.own_ip = own_ip_func()
@@ -159,6 +163,7 @@ class App(object):
         else:
             self.update_known_peers('add', addr)
 
+#
 if __name__ == '__main__':
     """
     This is executed if this file is called from cli.
@@ -166,3 +171,8 @@ if __name__ == '__main__':
     debug_print('Let\'s do this.')
     app = App()
     app.start()
+
+# When the Python interpreter reads a source file, it executes all of the code found in it.
+# Before executing the code, it will define a few special variables.
+# For example, if the Python interpreter is running that module (the source file) as the main program,
+# it sets the special __name__ variable to have a value "__main__"

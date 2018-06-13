@@ -14,8 +14,8 @@ class SubnetBroadcaster(object):
         self.listener_port = listener_port
         self.GOODBYE_MSG = goodbye_msg
 
-        if not getattr(self, 'broadcast_socket', None):
-            self.__enter__()
+        if not getattr(self, 'broadcast_socket', None): # Existiert ein Instanzattribut "broadcast_socket
+            self.__enter__()                            # wenn nicht, rufe methode __enter__ auf.
 
     def __enter__(self):
         """ Used by context manager ONLY! """

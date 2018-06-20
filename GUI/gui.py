@@ -37,7 +37,7 @@ class MainWindow(object):
         durch pack() wird ein Container ähnlich wie bei einem StackPanel erstellt, der die einzelnen Elemente grupiert!
 
         """
-        group = Label(main_window, text="Jahrgang: BWI16-BB",)
+        group = Label(main_window, text="Jahrgang: BWI18",)
         group.pack()
         """Hier wird analog zu oben wieder ein Textfeld erstellt."""
         
